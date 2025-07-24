@@ -43,7 +43,7 @@ async def predict(features: TokenFeatures):
     prediction_proba = model.predict_proba(data_df)[:, 1]
     
     # Return the probability score as a JSON response
-    return {"prediction_probability": prediction_proba[0]}
+    return {"prediction_probability": float(prediction_proba[0])}
 
 # A simple root endpoint to check if the API is running
 @app.get("/")
